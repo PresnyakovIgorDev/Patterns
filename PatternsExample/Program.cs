@@ -1,5 +1,6 @@
 ﻿using System;
 using Patterns.Creational;
+using Patterns.Creational.Abstract_factory;
 
 namespace PatternsExample
 {
@@ -9,7 +10,7 @@ namespace PatternsExample
         {
             SingletonTest();
             PrototypeTest();
-
+            AbstractFactoryTest();
             Console.ReadLine();
         }
 
@@ -39,7 +40,20 @@ namespace PatternsExample
             Singleton.Instance.TestProperty = "NewValue";
             Console.WriteLine(Singleton.Instance.TestProperty);
             Console.WriteLine("---------------------------");
+        }
 
+        private static void AbstractFactoryTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("AbstractFactory");
+            var firstFactory = new FirstFactory();
+            Console.WriteLine(firstFactory.GetAObject());
+            Console.WriteLine(firstFactory.GetBObject());
+
+            var secondFactory = new SecondFactory();
+            Console.WriteLine(secondFactory.GetAObject());
+            Console.WriteLine(secondFactory.GetBObject());
+            Console.WriteLine("---------------------------");
         }
     }
 
