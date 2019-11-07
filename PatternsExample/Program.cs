@@ -1,6 +1,7 @@
 ﻿using System;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
+using Patterns.Creational.Factory_Method;
 
 namespace PatternsExample
 {
@@ -11,6 +12,7 @@ namespace PatternsExample
             SingletonTest();
             PrototypeTest();
             AbstractFactoryTest();
+            FactoryMethodTest();
             Console.ReadLine();
         }
 
@@ -53,6 +55,18 @@ namespace PatternsExample
             var secondFactory = new SecondFactory();
             Console.WriteLine(secondFactory.GetAObject());
             Console.WriteLine(secondFactory.GetBObject());
+            Console.WriteLine("---------------------------");
+        }
+
+        private static void FactoryMethodTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("FactoryMethod");
+            var firstFactory = new CreatorA();
+            Console.WriteLine(firstFactory.FactoryMethod());
+
+            var secondFactory = new CreatorB();
+            Console.WriteLine(secondFactory.FactoryMethod());
             Console.WriteLine("---------------------------");
         }
     }
