@@ -1,6 +1,7 @@
 ﻿using System;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
+using Patterns.Creational.Builder;
 using Patterns.Creational.Factory_Method;
 
 namespace PatternsExample
@@ -13,6 +14,7 @@ namespace PatternsExample
             PrototypeTest();
             AbstractFactoryTest();
             FactoryMethodTest();
+            BuilderTest();
             Console.ReadLine();
         }
 
@@ -67,6 +69,17 @@ namespace PatternsExample
 
             var secondFactory = new CreatorB();
             Console.WriteLine(secondFactory.FactoryMethod());
+            Console.WriteLine("---------------------------");
+        }
+
+        private static void BuilderTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("BuilderTest");
+            var director = new CoffeeDirector();
+            Console.WriteLine(director.Build(new StandartCoffeeBuilder()));
+            Console.WriteLine(director.Build(new MilkCoffeeBuilder()));
+
             Console.WriteLine("---------------------------");
         }
     }
