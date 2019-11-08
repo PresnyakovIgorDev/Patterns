@@ -3,6 +3,7 @@ using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
 using Patterns.Creational.Builder;
 using Patterns.Creational.Factory_Method;
+using Patterns.Structural.Adapter;
 
 namespace PatternsExample
 {
@@ -15,6 +16,7 @@ namespace PatternsExample
             AbstractFactoryTest();
             FactoryMethodTest();
             BuilderTest();
+            AdapterTest();
             Console.ReadLine();
         }
 
@@ -79,6 +81,15 @@ namespace PatternsExample
             var director = new CoffeeDirector();
             Console.WriteLine(director.Build(new StandartCoffeeBuilder()));
             Console.WriteLine(director.Build(new MilkCoffeeBuilder()));
+
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void AdapterTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("AdapterTest");
+            TestClass.Execute(new Adapter(new Adaptee()));
 
             Console.WriteLine("---------------------------");
         }
