@@ -4,12 +4,13 @@ using Patterns.Creational.Abstract_factory;
 using Patterns.Creational.Builder;
 using Patterns.Creational.Factory_Method;
 using Patterns.Structural.Adapter;
+using Patterns.Structural.Bridge;
 
 namespace PatternsExample
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             SingletonTest();
             PrototypeTest();
@@ -17,6 +18,7 @@ namespace PatternsExample
             FactoryMethodTest();
             BuilderTest();
             AdapterTest();
+            BridgeTest();
             Console.ReadLine();
         }
 
@@ -35,7 +37,6 @@ namespace PatternsExample
             Console.WriteLine(prototype);
             Console.WriteLine(prototypeClone);
             Console.WriteLine("---------------------------");
-
         }
 
         private static void SingletonTest()
@@ -84,7 +85,7 @@ namespace PatternsExample
 
             Console.WriteLine("---------------------------");
         }
-        
+
         private static void AdapterTest()
         {
             Console.WriteLine("---------------------------");
@@ -93,6 +94,16 @@ namespace PatternsExample
 
             Console.WriteLine("---------------------------");
         }
-    }
 
+        private static void BridgeTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("BridgeTest");
+            ProgrammerBridge programmer = new FreelanceProgrammer(new CSharp());
+            programmer.DoWork();
+            programmer.GetSalary();
+
+            Console.WriteLine("---------------------------");
+        }
+    }
 }
