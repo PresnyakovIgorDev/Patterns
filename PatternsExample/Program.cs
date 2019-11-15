@@ -5,6 +5,7 @@ using Patterns.Creational.Builder;
 using Patterns.Creational.Factory_Method;
 using Patterns.Structural.Adapter;
 using Patterns.Structural.Bridge;
+using Patterns.Structural.Composite;
 
 namespace PatternsExample
 {
@@ -19,6 +20,7 @@ namespace PatternsExample
             BuilderTest();
             AdapterTest();
             BridgeTest();
+            CompositeTest();
             Console.ReadLine();
         }
 
@@ -103,6 +105,22 @@ namespace PatternsExample
             programmer.DoWork();
             programmer.GetSalary();
 
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void CompositeTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("CompositeTest");
+            Component box = new Composite("Коробка",1);
+            box.Add(new Leaf("Книга",50));
+            var subBox = new Composite("Контейнер", 2);
+            subBox.Add(new Leaf("Видеокарта", 100));
+            subBox.Add(new Leaf("CPU", 150));
+
+            box.Add(subBox);
+            box.Display();
+            Console.WriteLine(box.GetFullCost());
             Console.WriteLine("---------------------------");
         }
     }
