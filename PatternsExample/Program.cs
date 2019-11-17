@@ -6,7 +6,9 @@ using Patterns.Creational.Factory_Method;
 using Patterns.Structural.Adapter;
 using Patterns.Structural.Bridge;
 using Patterns.Structural.Composite;
+using Patterns.Structural.Decorator;
 using Patterns.Structural.Facade;
+using Patterns.Structural.Proxy;
 
 namespace PatternsExample
 {
@@ -23,6 +25,8 @@ namespace PatternsExample
             BridgeTest();
             CompositeTest();
             FacadeTest();
+            ProxyTest();
+            DecoratorTest();
             Console.ReadLine();
         }
 
@@ -134,6 +138,27 @@ namespace PatternsExample
             facade.Start();
             facade.MoveToHome();
             facade.Stop();
+
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void ProxyTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("ProxyTest");
+            var proxy = new ProxyObject(new RealObject());
+            proxy.Execute();
+
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void DecoratorTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("DecoratorTest");
+            var decorator = new CheesePizza(new RussianPizza());
+            Console.WriteLine(decorator.Title);
+            Console.WriteLine(decorator.GetCost());
 
             Console.WriteLine("---------------------------");
         }

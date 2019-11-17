@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Structural\Decorator" />
     <Folder Include="Structural\Flyweight" />
-    <Folder Include="Structural\Proxy" />
   </ItemGroup>
 
 </Project>
