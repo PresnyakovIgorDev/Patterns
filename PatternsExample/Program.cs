@@ -6,6 +6,7 @@ using Patterns.Creational.Factory_Method;
 using Patterns.Structural.Adapter;
 using Patterns.Structural.Bridge;
 using Patterns.Structural.Composite;
+using Patterns.Structural.Facade;
 
 namespace PatternsExample
 {
@@ -21,6 +22,7 @@ namespace PatternsExample
             AdapterTest();
             BridgeTest();
             CompositeTest();
+            FacadeTest();
             Console.ReadLine();
         }
 
@@ -121,6 +123,18 @@ namespace PatternsExample
             box.Add(subBox);
             box.Display();
             Console.WriteLine(box.GetFullCost());
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void FacadeTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("FacadeTest");
+            var facade = new CarFacade(new Engine(), new Transmission(), new Control());
+            facade.Start();
+            facade.MoveToHome();
+            facade.Stop();
+
             Console.WriteLine("---------------------------");
         }
     }
