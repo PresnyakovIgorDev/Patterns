@@ -8,6 +8,7 @@ using Patterns.Structural.Bridge;
 using Patterns.Structural.Composite;
 using Patterns.Structural.Decorator;
 using Patterns.Structural.Facade;
+using Patterns.Structural.Flyweight;
 using Patterns.Structural.Proxy;
 
 namespace PatternsExample
@@ -27,6 +28,7 @@ namespace PatternsExample
             FacadeTest();
             ProxyTest();
             DecoratorTest();
+            FlyweightTest();
             Console.ReadLine();
         }
 
@@ -160,6 +162,23 @@ namespace PatternsExample
             Console.WriteLine(decorator.Title);
             Console.WriteLine(decorator.GetCost());
 
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void FlyweightTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("FlyweightTest");
+            var factory = new CharFabric();
+            var aSymb = factory.GetCharForDrawing('a');
+            var aSymbTwo = factory.GetCharForDrawing('a');
+            var bSymb = factory.GetCharForDrawing('b');
+
+            var context = new DrawContext();
+            aSymb.DrawChar(context);
+            aSymbTwo.DrawChar(context);
+            bSymb.DrawChar(context);
+            
             Console.WriteLine("---------------------------");
         }
     }
