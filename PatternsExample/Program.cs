@@ -1,4 +1,5 @@
 ﻿using System;
+using Patterns.Behavioral.Strategy;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
 using Patterns.Creational.Builder;
@@ -29,6 +30,7 @@ namespace PatternsExample
             ProxyTest();
             DecoratorTest();
             FlyweightTest();
+            StrategyTest();
             Console.ReadLine();
         }
 
@@ -181,5 +183,18 @@ namespace PatternsExample
             
             Console.WriteLine("---------------------------");
         }
+        
+        private static void StrategyTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("StrategyTest");
+            var car = new HybridCar(new PetrolMove());
+            car.Move();
+            car.SetStrategy(new ElectricMove());
+            car.Move();
+
+            Console.WriteLine("---------------------------");
+        }
+
     }
 }
