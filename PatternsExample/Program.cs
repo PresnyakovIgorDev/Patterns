@@ -1,4 +1,5 @@
 ﻿using System;
+using Patterns.Behavioral.Chain_of_responsibility;
 using Patterns.Behavioral.Strategy;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
@@ -31,6 +32,7 @@ namespace PatternsExample
             DecoratorTest();
             FlyweightTest();
             StrategyTest();
+            ChainOfResponsibilityTest();
             Console.ReadLine();
         }
 
@@ -193,6 +195,17 @@ namespace PatternsExample
             car.SetStrategy(new ElectricMove());
             car.Move();
 
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void ChainOfResponsibilityTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("ChainOfResponsibilityTest");
+            var chain = new VisaHandler(new MaestroHandler(new MastercardHandler(null)));
+            chain.Handle(new Request(){ PaymentType = PaymentType.Maestro});
+            Console.WriteLine("---------------------------");
+            chain.Handle(new Request(){ PaymentType = PaymentType.Visa});
             Console.WriteLine("---------------------------");
         }
 
