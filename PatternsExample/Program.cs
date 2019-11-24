@@ -4,6 +4,7 @@ using Patterns.Behavioral.Command;
 using Patterns.Behavioral.Mediator;
 using Patterns.Behavioral.Observer;
 using Patterns.Behavioral.Strategy;
+using Patterns.Behavioral.Template_Method;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
 using Patterns.Creational.Builder;
@@ -39,6 +40,7 @@ namespace PatternsExample
             ObserverTest();
             CommandTest();
             MediatorTest();
+            TemplateMethodTest();
             Console.ReadLine();
         }
 
@@ -263,6 +265,17 @@ namespace PatternsExample
             
             fc.Send("Test1");
             sc.Send("Test2");
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void TemplateMethodTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("TemplateMethodTest");
+            Education sc = new School();
+            sc.Learn();
+            Education univer = new University();
+            univer.Learn();
             Console.WriteLine("---------------------------");
         }
 
