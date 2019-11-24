@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Patterns.Behavioral.Chain_of_responsibility;
 using Patterns.Behavioral.Command;
+using Patterns.Behavioral.Iterator;
 using Patterns.Behavioral.Mediator;
 using Patterns.Behavioral.Memento;
 using Patterns.Behavioral.Observer;
@@ -44,6 +45,7 @@ namespace PatternsExample
             MediatorTest();
             TemplateMethodTest();
             MementoTest();
+            IteratorTest();
             Console.ReadLine();
         }
 
@@ -298,6 +300,25 @@ namespace PatternsExample
             Console.WriteLine("---------------------------");
         }
 
+        private static void IteratorTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("IteratorTest");
+            var collection = new IntCollection();
+            collection[0] = 0;
+            collection[1] = 1;
+            collection[2] = 2;
+            collection[3] = 3;
+            var iterator = collection.GetIterator();
+            while (!iterator.IsDone())
+            {
+                
+                Console.WriteLine(iterator.CurrentItem());
+                iterator.Next();
+            }
+            
+            Console.WriteLine("---------------------------");
+        }
 
     }
 }

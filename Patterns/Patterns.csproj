@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Behavioral\Interpreter" />
-    <Folder Include="Behavioral\Iterator" />
     <Folder Include="Behavioral\State" />
     <Folder Include="Behavioral\Visitor" />
   </ItemGroup>
