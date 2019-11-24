@@ -1,5 +1,6 @@
 ﻿using System;
 using Patterns.Behavioral.Chain_of_responsibility;
+using Patterns.Behavioral.Observer;
 using Patterns.Behavioral.Strategy;
 using Patterns.Creational;
 using Patterns.Creational.Abstract_factory;
@@ -33,6 +34,7 @@ namespace PatternsExample
             FlyweightTest();
             StrategyTest();
             ChainOfResponsibilityTest();
+            ObserverTest();
             Console.ReadLine();
         }
 
@@ -206,6 +208,26 @@ namespace PatternsExample
             chain.Handle(new Request(){ PaymentType = PaymentType.Maestro});
             Console.WriteLine("---------------------------");
             chain.Handle(new Request(){ PaymentType = PaymentType.Visa});
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void ObserverTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("ObserverTest");
+            var newsSite = new NewsSite();
+            newsSite.AddNews(new NewsUnit(){Title = "1"});
+            
+            newsSite.AddObserver(new RssObserver());
+            newsSite.AddNews(new NewsUnit(){Title = "2"});
+            
+            var observer = new RssObserver();
+            newsSite.AddObserver(observer);
+            newsSite.AddNews(new NewsUnit(){Title = "3"});
+            
+            newsSite.Remove(observer);
+            newsSite.AddNews(new NewsUnit(){Title = "4"});
+            
             Console.WriteLine("---------------------------");
         }
 
