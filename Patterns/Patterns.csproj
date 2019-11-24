@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behavioral\Command" />
     <Folder Include="Behavioral\Interpreter" />
     <Folder Include="Behavioral\Iterator" />
     <Folder Include="Behavioral\Mediator" />

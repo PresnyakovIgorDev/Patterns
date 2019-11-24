@@ -1,5 +1,6 @@
 ﻿using System;
 using Patterns.Behavioral.Chain_of_responsibility;
+using Patterns.Behavioral.Command;
 using Patterns.Behavioral.Observer;
 using Patterns.Behavioral.Strategy;
 using Patterns.Creational;
@@ -35,6 +36,7 @@ namespace PatternsExample
             StrategyTest();
             ChainOfResponsibilityTest();
             ObserverTest();
+            CommandTest();
             Console.ReadLine();
         }
 
@@ -230,6 +232,21 @@ namespace PatternsExample
             
             Console.WriteLine("---------------------------");
         }
+        
+        
+        private static void CommandTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("CommandTest");
+            var tv = new TV();
+            var command = new TVOnCommand(tv);
+            var pult = new RemoteControl();
+            pult.SetCommand(command);
+            pult.ClickExecute();
+            pult.ClickUndo();
+            Console.WriteLine("---------------------------");
+        }
+
 
     }
 }
