@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Patterns.Behavioral.Chain_of_responsibility;
 using Patterns.Behavioral.Command;
 using Patterns.Behavioral.Mediator;
+using Patterns.Behavioral.Memento;
 using Patterns.Behavioral.Observer;
 using Patterns.Behavioral.Strategy;
 using Patterns.Behavioral.Template_Method;
@@ -41,6 +43,7 @@ namespace PatternsExample
             CommandTest();
             MediatorTest();
             TemplateMethodTest();
+            MementoTest();
             Console.ReadLine();
         }
 
@@ -276,6 +279,22 @@ namespace PatternsExample
             sc.Learn();
             Education univer = new University();
             univer.Learn();
+            Console.WriteLine("---------------------------");
+        } 
+        
+        private static void MementoTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("MementoTest");
+            var hero = new GameHero();
+            var caretaker = new Caretaker();
+            caretaker.States.Push(hero.GetState());
+            hero.Shoot();
+            hero.Shoot();
+            hero.AddHealth();
+            caretaker.States.Push(hero.GetState());
+            hero.RestoreState(caretaker.States.Pop());
+            hero.RestoreState(caretaker.States.Pop());
             Console.WriteLine("---------------------------");
         }
 
