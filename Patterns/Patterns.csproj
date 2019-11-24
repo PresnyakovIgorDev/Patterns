@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Behavioral\Interpreter" />
     <Folder Include="Behavioral\Iterator" />
-    <Folder Include="Behavioral\Mediator" />
     <Folder Include="Behavioral\Memento" />
     <Folder Include="Behavioral\State" />
     <Folder Include="Behavioral\Template Method" />

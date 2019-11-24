@@ -1,6 +1,7 @@
 ﻿using System;
 using Patterns.Behavioral.Chain_of_responsibility;
 using Patterns.Behavioral.Command;
+using Patterns.Behavioral.Mediator;
 using Patterns.Behavioral.Observer;
 using Patterns.Behavioral.Strategy;
 using Patterns.Creational;
@@ -37,6 +38,7 @@ namespace PatternsExample
             ChainOfResponsibilityTest();
             ObserverTest();
             CommandTest();
+            MediatorTest();
             Console.ReadLine();
         }
 
@@ -244,6 +246,23 @@ namespace PatternsExample
             pult.SetCommand(command);
             pult.ClickExecute();
             pult.ClickUndo();
+            Console.WriteLine("---------------------------");
+        }
+        
+        private static void MediatorTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("CommandTest");
+            var mediator = new Mediator();
+            var fc = new FirstColleuge(mediator);
+            var sc = new SecondColleuge(mediator);
+
+
+            mediator.FirstColleuge = fc;
+            mediator.SecondColleuge = sc;
+            
+            fc.Send("Test1");
+            sc.Send("Test2");
             Console.WriteLine("---------------------------");
         }
 
