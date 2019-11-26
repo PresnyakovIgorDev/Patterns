@@ -6,6 +6,7 @@ using Patterns.Behavioral.Iterator;
 using Patterns.Behavioral.Mediator;
 using Patterns.Behavioral.Memento;
 using Patterns.Behavioral.Observer;
+using Patterns.Behavioral.State;
 using Patterns.Behavioral.Strategy;
 using Patterns.Behavioral.Template_Method;
 using Patterns.Creational;
@@ -46,6 +47,7 @@ namespace PatternsExample
             TemplateMethodTest();
             MementoTest();
             IteratorTest();
+            StateTest();
             Console.ReadLine();
         }
 
@@ -319,6 +321,18 @@ namespace PatternsExample
             
             Console.WriteLine("---------------------------");
         }
+        
+        private static void StateTest()
+        {
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("StateTest");
+            var water = new Water(new Ice());
+            water.Heat();
+            water.Heat();
+            water.Cold();
+            water.Cold();
+            Console.WriteLine("---------------------------");
+        } 
 
     }
 }
